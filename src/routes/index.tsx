@@ -1,24 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/Header";
+import { HomeMain } from "@/components/site/HomeMain";
+import { Footer } from "@/components/site/Footer";
+import { FloatWhats } from "@/components/site/FloatWhats";
+import { useHomeBehaviors } from "@/components/site/useHomeBehaviors";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Alan Alves — Sites, Sistemas e Robôs de WhatsApp com IA" },
+      { name: "description", content: "Alan Alves cria sites profissionais, landing pages, sistemas web e robôs de WhatsApp com inteligência artificial." },
+      { property: "og:title", content: "Alan Alves — Desenvolvimento Web, IA e Automações" },
+      { property: "og:description", content: "Eu projeto. Eu desenvolvo. Eu automatizo. Fale comigo e crie seu projeto." },
+    ],
+    links: [{ rel: "stylesheet", href: "/assets/portfolio-neon.css" }],
+    scripts: [{ type: "module", src: "/assets/portfolio-neon.js" }],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  useHomeBehaviors();
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Header />
+      <HomeMain />
+      <Footer />
+      <FloatWhats />
+    </>
   );
 }
