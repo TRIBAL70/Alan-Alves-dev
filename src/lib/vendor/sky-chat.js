@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const GPTMAKER_CHAT='https://app.gptmaker.ai/widget/3FB126EEAA8EC3273F6F26205F86C1A5/iframe';
 const CONSENT='sky-v2-gptmaker-2026-10-23';
 const WA='https://wa.me/5551999938323';

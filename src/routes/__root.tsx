@@ -115,8 +115,7 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   useEffect(() => {
-    const url = "/assets/sky-chat.js";
-    import(/* @vite-ignore */ url).then((m: { mountFloatingSky: () => void }) => m.mountFloatingSky());
+    import("@/lib/vendor/sky-chat.js").then((m) => m.mountFloatingSky());
   }, []);
 
   return (

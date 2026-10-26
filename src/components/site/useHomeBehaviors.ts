@@ -53,6 +53,16 @@ export function useHomeBehaviors() {
       cleanups.push(() => form.removeEventListener("submit", onSubmit));
     }
 
+    let stopNeon: (() => void) | undefined;
+    let alive = true;
+    import("@/lib/vendor/portfolio-neon.js").then((m) => {
+      if (alive) stopNeon = m.startPortfolioNeon();
+    });
+    cleanups.push(() => {
+      alive = false;
+      stopNeon?.();
+    });
+
     return () => cleanups.forEach((c) => c());
   }, []);
 }

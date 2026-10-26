@@ -14,7 +14,6 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Eu projeto. Eu desenvolvo. Eu automatizo. Fale comigo e crie seu projeto." },
     ],
     links: [{ rel: "stylesheet", href: "/assets/portfolio-neon.css" }],
-    scripts: [{ type: "module", src: "/assets/portfolio-neon.js" }],
   }),
   component: Index,
 });

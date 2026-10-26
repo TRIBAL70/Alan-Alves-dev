@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Progressive enhancement: native horizontal scrolling remains available without JS.
 let current;
 function mount() {
@@ -31,5 +32,4 @@ function mount() {
   new MutationObserver(schedule).observe(rail, {childList:true});
   update();
 }
-new MutationObserver(mount).observe(document.body, {childList:true, subtree:true});
-mount();
+export function startPortfolioNeon(){ mount(); const mo=new MutationObserver(mount); mo.observe(document.body,{childList:true,subtree:true}); return ()=>mo.disconnect(); }
