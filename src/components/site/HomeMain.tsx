@@ -98,8 +98,25 @@ function LivingPortal() {
       gl.deleteTexture(texture); gl.deleteBuffer(buffer); gl.deleteProgram(program); gl.deleteShader(vs); gl.deleteShader(fs);
     };
   }, []);
-  return <div className="relative overflow-hidden rounded-3xl neon-border shadow-glow-purple">
+  return <div className="living-portal relative overflow-hidden rounded-3xl neon-border shadow-glow-purple">
+    <style>{`@media (prefers-reduced-motion: reduce) { .living-portal > svg { display: none; } }`}</style>
     <img src="/assets/portal-CiDKRc_M.jpg" alt="Homem de sobretudo diante de um portal holográfico azul e violeta" loading="lazy" width={1280} height={832} className="h-full w-full object-cover" />
+    <svg viewBox="0 0 1280 832" aria-hidden="true" style={{position:'absolute',inset:0,width:'100%',height:'100%',pointerEvents:'none'}}>
+      <defs>
+        <clipPath id="portal-coat"><path d="M609 480 Q640 466 666 486 L675 613 Q649 620 638 607 L597 612 L583 608 Q604 565 609 480Z" /></clipPath>
+        <filter id="portal-wind" x="-20%" y="-15%" width="140%" height="130%">
+          <feTurbulence type="fractalNoise" baseFrequency=".014 .025" numOctaves="2" seed="7" result="wind"><animate attributeName="baseFrequency" values=".014 .025;.019 .028;.014 .025" dur="4s" repeatCount="indefinite" /></feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="wind" scale="7" xChannelSelector="R" yChannelSelector="G"><animate attributeName="scale" values="3;9;3" dur="3s" repeatCount="indefinite" /></feDisplacementMap>
+        </filter>
+        <mask id="portal-front"><rect width="1280" height="832" fill="white"/><path d="M607 447 Q639 423 668 453 L686 615 L661 685 L610 685 L579 610Z" fill="black"/></mask>
+      </defs>
+      <g mask="url(#portal-front)" fill="none" strokeLinecap="round">
+        <circle cx="640" cy="400" r="236" stroke="#50dcff" strokeWidth="3" strokeDasharray="95 280 36 1072" opacity=".85"><animateTransform attributeName="transform" type="rotate" from="0 640 400" to="360 640 400" dur="14s" repeatCount="indefinite"/></circle>
+        <circle cx="640" cy="400" r="215" stroke="#ba72ff" strokeWidth="2" strokeDasharray="60 210 110 971" opacity=".75"><animateTransform attributeName="transform" type="rotate" from="360 640 400" to="0 640 400" dur="19s" repeatCount="indefinite"/></circle>
+        <circle cx="640" cy="400" r="229" stroke="#65dcff" strokeWidth="9" opacity=".08"><animate attributeName="opacity" values=".04;.24;.04" dur="3s" repeatCount="indefinite"/></circle>
+      </g>
+      <g clipPath="url(#portal-coat)"><image href="/assets/portal-CiDKRc_M.jpg" width="1280" height="832" filter="url(#portal-wind)"/></g>
+    </svg>
     <canvas ref={canvasRef} width={1280} height={832} aria-hidden="true" style={{position:'absolute',inset:0,width:'100%',height:'100%',opacity:0,pointerEvents:'none'}} />
   </div>;
 }
