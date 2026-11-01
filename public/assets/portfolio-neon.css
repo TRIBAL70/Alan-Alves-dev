@@ -14,3 +14,18 @@
 .portfolio-energy input::-moz-range-thumb{width:22px;height:16px;border:1px solid #c9f8ff;border-radius:5px;background:linear-gradient(110deg,#a3faff,#5c89ff,#b679ff);box-shadow:0 0 12px #38dfff,0 0 25px #884dff99}
 .portfolio-energy input:focus-visible{outline:2px solid #61e8ff;outline-offset:3px;border-radius:8px}
 .portfolio-navigation:hover{border-color:#7266b9;box-shadow:0 0 22px #5f41ce20}
+
+/* Barbearia VIP — animated screenshot preview. Scoped to this portfolio card. */
+#projetos [data-project="barbearia-vip"] .vip-preview{position:relative;isolation:isolate;display:block;height:10rem;overflow:hidden;background:#08090b}
+#projetos [data-project="barbearia-vip"] .vip-preview img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .65s ease,filter .4s ease}
+#projetos [data-project="barbearia-vip"] .vip-preview:hover img{transform:scale(1.06);filter:brightness(1.09)}
+#projetos [data-project="barbearia-vip"] .vip-preview::before{content:"";position:absolute;inset:-30% -60%;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 39%,rgba(94,235,255,.04) 44%,rgba(152,245,255,.34) 50%,rgba(94,235,255,.04) 56%,transparent 61%);transform:translateX(-100%);animation:vip-neon-scan 5.4s ease-in-out infinite}
+#projetos [data-project="barbearia-vip"] .vip-preview::after{content:"";position:absolute;inset:1px;z-index:3;pointer-events:none;border:1px solid rgba(54,228,255,.85);border-radius:5px;box-shadow:inset 0 0 14px rgba(14,185,255,.45),0 0 14px rgba(44,201,255,.35);animation:vip-neon-flicker 3.8s ease-in-out infinite}
+#projetos [data-project="barbearia-vip"] .vip-pole-glow{position:absolute;z-index:1;right:3%;top:6%;width:22%;height:88%;pointer-events:none;background:radial-gradient(ellipse at center,rgba(65,196,255,.22),transparent 70%);mix-blend-mode:screen;animation:vip-pole-pulse 2.1s ease-in-out infinite}
+#projetos [data-project="barbearia-vip"] .vip-live{position:absolute;z-index:4;right:8px;top:8px;display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border:1px solid rgba(68,233,255,.75);border-radius:100px;background:rgba(0,8,17,.82);color:#e5fbff;font-size:9px;font-weight:750;letter-spacing:.12em;box-shadow:0 0 11px rgba(0,221,255,.36);backdrop-filter:blur(8px)}
+#projetos [data-project="barbearia-vip"] .vip-live-dot{display:inline-block;width:6px;height:6px;flex-shrink:0;border-radius:50%;background:#42ffb1;box-shadow:0 0 5px #42ffb1;animation:vip-dot-pulse 1.5s ease-in-out infinite}
+@keyframes vip-neon-scan{0%,25%{transform:translateX(-105%)}55%,100%{transform:translateX(105%)}}
+@keyframes vip-neon-flicker{0%,100%,32%,50%,74%{opacity:1;box-shadow:inset 0 0 14px rgba(14,185,255,.45),0 0 14px rgba(44,201,255,.35)}38%,44%{opacity:.65;box-shadow:inset 0 0 5px rgba(14,185,255,.20),0 0 4px rgba(44,201,255,.15)}}
+@keyframes vip-pole-pulse{0%,100%{opacity:.25}50%{opacity:.95}}
+@keyframes vip-dot-pulse{0%,100%{opacity:1;box-shadow:0 0 5px #42ffb1}50%{opacity:.45;box-shadow:0 0 11px #42ffb1}}
+@media (prefers-reduced-motion:reduce){#projetos [data-project="barbearia-vip"] .vip-preview::before,#projetos [data-project="barbearia-vip"] .vip-preview::after,#projetos [data-project="barbearia-vip"] .vip-pole-glow,#projetos [data-project="barbearia-vip"] .vip-live-dot{animation:none}}
