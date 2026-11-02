@@ -8,3 +8,21 @@
 /* Keep the embedded composer visible within the floating panel. */
 .sky-floating{bottom:150px;max-height:calc(100dvh - 170px)}.sky-floating .sky-chat{max-height:calc(100dvh - 170px)}.sky-floating .sky-maker-body{flex:1 1 410px;min-height:340px}.sky-maker .sky-chat-head,.sky-maker .sky-contact-row,.sky-maker .sky-privacy{flex-shrink:0}
 @media(max-width:600px){.sky-floating{bottom:100px;max-height:calc(100dvh - 122px)}.sky-floating .sky-chat{max-height:calc(100dvh - 122px)}.sky-floating .sky-maker-body{flex-basis:calc(100dvh - 340px);min-height:240px}}
+/* Alan Alves Dev banner under the Sky chat. */
+.sky-banner{flex-shrink:0;padding:12px 12px 4px;border-top:1px solid #1d2a4d;background:#060914}
+.sky-banner-hero{position:relative;overflow:hidden;border:1px solid #00bfff55;border-radius:16px;padding:22px 16px 18px;background:linear-gradient(180deg,#05081499,#050814ee),radial-gradient(ellipse at 85% 0,#8b40ff66,transparent 60%),url(/assets/globe-BxijoBpU.jpg) center/cover;box-shadow:0 0 18px #00bfff22,inset 0 0 24px #8b40ff22}
+.sky-banner-lines{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(115deg,transparent 0 22px,#00f0ff10 22px 23px),radial-gradient(circle at 20% 70%,#00f0ff55 0 1px,transparent 2px),radial-gradient(circle at 70% 30%,#8b40ff66 0 1px,transparent 2px),radial-gradient(circle at 45% 85%,#00bfff55 0 1px,transparent 2px);animation:skyDrift 12s linear infinite alternate}
+.sky-banner-hero small,.sky-banner-hero strong{position:relative;display:block}
+.sky-banner-hero small{font-size:10px;letter-spacing:.28em;color:#00f0ff;text-shadow:0 0 8px #00f0ff99}
+.sky-banner-hero strong{margin-top:4px;font:700 20px/1.2 'Space Grotesk',Inter,sans-serif;color:#f2f5ff;text-shadow:0 0 14px #8b40ff88}
+.sky-banner-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.sky-banner-btn{display:flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:8px;border:1px solid #00bfff;border-radius:12px;background:#00bfff12;color:#7ff3ff;font-size:12px;font-weight:600;text-decoration:none;box-shadow:0 0 10px #00bfff33;transition:transform .2s,box-shadow .2s}
+.sky-banner-btn-alt{border-color:#8b40ff;background:#8b40ff1a;color:#d4b8ff;box-shadow:0 0 10px #8b40ff44}
+.sky-banner-btn:hover,.sky-banner-btn:focus-visible{transform:translateY(-2px);box-shadow:0 0 16px #00f0ff77}
+.sky-banner-btn-alt:hover,.sky-banner-btn-alt:focus-visible{box-shadow:0 0 16px #8b40ff99}
+.sky-banner-note{margin:8px 2px 2px;font-size:10px;color:#8e98b5;text-align:center}
+@keyframes skyDrift{to{background-position:40px 0,10px -8px,-12px 6px,8px 10px}}
+.sky-floating .sky-chat{overflow-y:auto;overscroll-behavior:contain}
+.sky-floating .sky-chat>*{flex-shrink:0}.sky-floating .sky-maker-body{flex-shrink:0}
+@media(max-width:600px){.sky-banner-hero{padding:14px 12px}.sky-banner-hero strong{font-size:16px}.sky-banner-btn{font-size:11px;min-height:38px}}
+@media(prefers-reduced-motion:reduce){.sky-banner-lines{animation:none}.sky-banner-btn{transition:none}}
