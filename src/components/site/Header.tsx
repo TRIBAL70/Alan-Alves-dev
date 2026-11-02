@@ -38,7 +38,7 @@ export function Header() {
     window.addEventListener("resize", update);
     return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
   }, []);
-  const links = (mobile: boolean) => LINKS.map((item) => (
+  const links = () => LINKS.map((item) => (
     <a
       key={item.hash}
       href={item.url}
@@ -58,14 +58,14 @@ export function Header() {
             <span className="aa-brand-subtitle">WEB DEVELOPER • AI AUTOMATION</span>
           </span>
         </a>
-        <nav aria-label="Navegação principal" className="aa-nav-links">{links(false)}</nav>
+        <nav aria-label="Navegação principal" className="aa-nav-links">{links()}</nav>
         <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="aa-nav-cta">VAMOS CONVERSAR <ArrowUpRight size={15} aria-hidden="true" /></a>
         <button type="button" className="aa-nav-toggle" aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open} aria-controls="aa-mobile-menu" onClick={() => setOpen((prev) => !prev)}>
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
       {open && <nav id="aa-mobile-menu" aria-label="Menu no celular" className="aa-mobile-menu">
-        {links(true)}
+        {links()}
         <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="aa-nav-cta" onClick={() => setOpen(false)}>VAMOS CONVERSAR <ArrowUpRight size={15} /></a>
       </nav>}
     </header>
