@@ -1,0 +1,100 @@
+/* Isolated Tailwind utilities only: no duplicate preflight or original site styles. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "../components/hero";
+/* ===================================================================
+ * Alan Alves — Neon header (NeonNav + HeroSection). Isolated under aan-.
+ * Ported from the Pixel-Perfect Build project.
+ * =================================================================== */
+:root {
+  --aan-space: oklch(0.12 0.03 262);
+  --aan-deep: oklch(0.18 0.05 262);
+  --aan-blue: oklch(0.74 0.16 230);
+  --aan-cyan: oklch(0.88 0.15 200);
+  --aan-violet: oklch(0.58 0.25 295);
+  --aan-magenta: oklch(0.7 0.32 330);
+  --aan-white: oklch(0.98 0.01 260);
+  --aan-online: oklch(0.82 0.2 155);
+  --aan-gradient: linear-gradient(90deg, var(--aan-blue), var(--aan-violet) 60%, var(--aan-magenta));
+}
+@theme inline {
+  --color-aan-space: var(--aan-space);
+  --color-aan-deep: var(--aan-deep);
+  --color-aan-blue: var(--aan-blue);
+  --color-aan-cyan: var(--aan-cyan);
+  --color-aan-violet: var(--aan-violet);
+  --color-aan-magenta: var(--aan-magenta);
+  --color-aan-white: var(--aan-white);
+  --color-aan-online: var(--aan-online);
+  --font-aan-display: "Orbitron", sans-serif;
+  --font-aan-sans: "Exo 2", sans-serif;
+}
+@property --aan-ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+@keyframes aan-breathe { 0%,100% { filter: drop-shadow(0 0 6px color-mix(in oklab, var(--aan-magenta) 40%, transparent)) brightness(1); } 50% { filter: drop-shadow(0 0 22px color-mix(in oklab, var(--aan-violet) 80%, transparent)) brightness(1.15); } }
+@keyframes aan-sheen { 0% { transform: translateX(-120%) skewX(-20deg); } 60%,100% { transform: translateX(220%) skewX(-20deg); } }
+@keyframes aan-spin { to { transform: rotate(360deg); } }
+@keyframes aan-twinkle { 0%,100% { opacity: .15; transform: scale(.6) rotate(0); } 50% { opacity: 1; transform: scale(1.15) rotate(45deg); } }
+@keyframes aan-pulse-dot { 0%,100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--aan-online) 70%, transparent); } 50% { box-shadow: 0 0 0 7px transparent; } }
+@keyframes aan-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes aan-border-run { to { --aan-ang: 360deg; } }
+@keyframes aan-rise { from { opacity: 0; transform: translateY(18px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes aan-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes aan-portal { 0%,100% { opacity: .75; transform: scale(1); } 50% { opacity: 1; transform: scale(1.025); } }
+@keyframes aan-dash { to { stroke-dashoffset: -400; } }
+@keyframes aan-wave { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+@utility aan-hero { background: radial-gradient(ellipse at 30% 40%, var(--aan-deep), var(--aan-space) 70%); }
+@utility aan-nav {
+  background: color-mix(in oklab, var(--aan-space) 70%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--aan-violet) 45%, transparent);
+  box-shadow: 0 1px 18px -4px color-mix(in oklab, var(--aan-violet) 60%, transparent);
+  transition: background .4s, backdrop-filter .4s;
+  &[data-scrolled="true"] { background: color-mix(in oklab, var(--aan-space) 55%, transparent); backdrop-filter: blur(16px) saturate(140%); }
+}
+@utility aan-border {
+  position: relative; isolation: isolate;
+  &::before { content: ""; position: absolute; inset: -2px; border-radius: inherit; z-index: -1;
+    background: conic-gradient(from var(--aan-ang), transparent 0 70%, var(--aan-cyan) 85%, transparent 100%);
+    animation: aan-border-run 4s linear infinite; }
+  &::after { content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1; background: var(--aan-space); border: 1.5px solid color-mix(in oklab, var(--aan-cyan) 70%, transparent); }
+}
+@utility aan-btn {
+  position: relative; overflow: hidden; color: var(--aan-white);
+  background: var(--aan-gradient);
+  box-shadow: 0 0 18px color-mix(in oklab, var(--aan-violet) 70%, transparent), inset 0 0 12px color-mix(in oklab, var(--aan-white) 30%, transparent);
+  transition: transform .25s, box-shadow .25s;
+  &::after { content: ""; position: absolute; inset: 0; width: 40%; background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--aan-white) 55%, transparent), transparent); animation: aan-sheen 3.2s ease-in-out infinite; }
+  &:hover { transform: translateY(-3px); box-shadow: 0 0 34px color-mix(in oklab, var(--aan-magenta) 80%, transparent), 0 0 60px color-mix(in oklab, var(--aan-blue) 40%, transparent); }
+  &:active { transform: translateY(1px) scale(.98); }
+}
+@utility aan-glow-hover {
+  transition: transform .25s, box-shadow .25s, color .25s;
+  &:hover { transform: translateY(-2px); box-shadow: 0 0 22px color-mix(in oklab, var(--aan-cyan) 60%, transparent); }
+  &:active { transform: scale(.97); }
+}
+@utility aan-social-ring {
+  border: 1.5px solid color-mix(in oklab, var(--aan-violet) 80%, transparent);
+  box-shadow: 0 0 10px color-mix(in oklab, var(--aan-violet) 40%, transparent), inset 0 0 8px color-mix(in oklab, var(--aan-blue) 30%, transparent);
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+  &:hover, &:focus-visible { transform: translateY(-3px); border-color: var(--aan-cyan); box-shadow: 0 0 22px color-mix(in oklab, var(--aan-cyan) 60%, transparent); }
+}
+@utility aan-glass {
+  background: color-mix(in oklab, var(--aan-space) 82%, transparent);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid color-mix(in oklab, var(--aan-cyan) 60%, transparent);
+  box-shadow: 0 0 18px color-mix(in oklab, var(--aan-violet) 50%, transparent);
+}
+@utility aan-text-cyan { color: var(--aan-cyan); text-shadow: 0 0 12px color-mix(in oklab, var(--aan-cyan) 60%, transparent); }
+@utility aan-text-magenta { color: var(--aan-magenta); text-shadow: 0 0 12px color-mix(in oklab, var(--aan-magenta) 60%, transparent); }
+@utility aan-status-dot { background: var(--aan-online); animation: aan-pulse-dot 2s infinite; }
+@utility aan-enter { opacity: 0; animation: aan-rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+@utility aan-enter-fade { opacity: 0; animation: aan-fade 1.2s ease forwards; }
+@utility aan-card-in { opacity: 0; animation: aan-rise .9s 1.6s forwards, aan-float 5s ease-in-out 2.5s infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .aan-nav *, .aan-nav *::before, .aan-nav *::after,
+  .aan-hero, .aan-hero *, .aan-hero *::before, .aan-hero *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important;
+  }
+}
