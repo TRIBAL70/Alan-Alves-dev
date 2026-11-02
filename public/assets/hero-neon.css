@@ -1,0 +1,42 @@
+/* Hero ALAN ALVES: arte + movimento independente do CSS original compilado */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap');
+#inicio.alan-hero-section{isolation:isolate;position:relative;overflow:clip;background:radial-gradient(ellipse at 0% 18%,rgba(4,88,191,.17),transparent 58%),radial-gradient(ellipse at 95% 50%,rgba(132,30,203,.16),transparent 59%),linear-gradient(125deg,#030711 0%,#080b21 48%,#12051c 100%)}
+#inicio .alan-hero-content{position:relative;z-index:2}
+#inicio .alan-hero-logo{display:block;width:100%;max-width:710px;margin:14px 0 1rem;line-height:0;position:relative;filter:drop-shadow(0 0 12px rgba(31,123,255,.25));transform-origin:center}
+#inicio .alan-hero-logo svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 0 4px rgba(23,191,255,.3));animation:alan-logo-breathe 6s ease-in-out infinite}
+#inicio .alan-logo-lettering{font-family:"Cinzel Decorative",Georgia,"Times New Roman",serif;font-weight:900;font-size:150px;letter-spacing:-5px}
+#inicio .alan-title-text{transform-origin:50% 50%;animation:alan-logo-float 7s ease-in-out infinite}
+#inicio .alan-logo-shimmer{animation:alan-logo-sheen 5.4s ease-in-out infinite}
+#inicio .alan-logo-spark{transform-origin:555px 59px;animation:alan-star-twinkle 3.8s ease-in-out infinite}
+#inicio .alan-logo-spark-bottom{transform-origin:555px 286px;animation-delay:1.2s}
+#inicio .alan-hud-spin{stroke-dasharray:175 145;transform-origin:center;animation:alan-ring-spin 26s linear infinite}
+#inicio .alan-hud-spin-reverse{transform-origin:center;animation:alan-ring-spin-reverse 34s linear infinite}
+#inicio .alan-circuit path{stroke-dasharray:900;stroke-dashoffset:900;animation:alan-circuit-on 4s cubic-bezier(.22,.61,.36,1) both,alan-circuit-pulse 7s ease-in-out 4s infinite}
+#inicio .alan-circuit path:nth-child(even){animation-delay:.35s,4.35s}
+#inicio .alan-circuit-points{filter:drop-shadow(0 0 6px #19d9ff);animation:alan-star-twinkle 4s ease-in-out infinite}
+#inicio .alan-hero-tagline{line-height:1.8;max-width:760px}
+#inicio .alan-hero-tagline span:last-child{display:block}
+#inicio .alan-hero-atmosphere{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;contain:paint}
+#inicio .alan-smoke{position:absolute;display:block;pointer-events:none;border-radius:50%;will-change:transform,opacity;mix-blend-mode:screen;filter:blur(21px);animation:alan-smoke-drift 17s ease-in-out infinite alternate}
+#inicio .alan-smoke-blue-top{top:-12%;left:-21%;width:74%;height:57%;background:radial-gradient(ellipse at 38% 45%,rgba(4,207,255,.52) 0%,rgba(13,106,250,.25) 25%,rgba(10,43,112,.17) 50%,transparent 72%);transform:rotate(-20deg)}
+#inicio .alan-smoke-blue-bottom{bottom:-11%;left:-24%;width:85%;height:57%;background:radial-gradient(ellipse at 46% 48%,rgba(0,210,255,.44) 0%,rgba(7,83,223,.24) 28%,rgba(16,38,93,.12) 56%,transparent 75%);animation-delay:-8s}
+#inicio .alan-smoke-purple-right{right:-30%;top:12%;width:76%;height:71%;background:radial-gradient(ellipse at 48% 54%,rgba(222,24,251,.38) 0%,rgba(135,22,223,.22) 29%,rgba(56,10,105,.12) 55%,transparent 72%);animation-delay:-4s}
+#inicio .alan-smoke-purple-bottom{right:-20%;bottom:-15%;width:90%;height:48%;background:radial-gradient(ellipse at 58% 45%,rgba(205,17,249,.40) 0%,rgba(97,37,211,.23) 29%,transparent 72%);animation-delay:-12s}
+#inicio .alan-light-trail{position:absolute;width:80%;height:2px;border-radius:50%;opacity:.74;transform:rotate(-14deg);filter:drop-shadow(0 0 7px currentColor);animation:alan-trail-move 10s ease-in-out infinite alternate}
+#inicio .alan-light-trail-blue{top:35%;left:-18%;color:#00cfff;background:linear-gradient(90deg,transparent,#00e5ff,#2377ff,transparent)}
+#inicio .alan-light-trail-purple{bottom:12%;right:-23%;color:#cb39ff;background:linear-gradient(90deg,transparent,#a63eff,#ff36f7,transparent);animation-delay:-5s}
+#inicio .alan-hero-particles{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 9% 18%,#0feaffbb 98%,transparent),radial-gradient(2px 2px at 73% 28%,#dc4bffcc 98%,transparent),radial-gradient(1px 1px at 83% 73%,#f369ff 98%,transparent),radial-gradient(2px 2px at 21% 88%,#34baffbb 98%,transparent),radial-gradient(1px 1px at 60% 60%,#ffffffaa 98%,transparent);animation:alan-star-twinkle 7s ease-in-out infinite}
+#inicio .alan-hero-content>a:focus-visible,#inicio .alan-hero-content a:focus-visible{outline:2px solid #6cf6ff;outline-offset:5px}
+@keyframes alan-logo-breathe{0%,100%{opacity:.94;filter:brightness(1) drop-shadow(0 0 5px #2f8fff50)}50%{opacity:1;filter:brightness(1.17) drop-shadow(0 0 12px #9c39fa70)}}
+@keyframes alan-logo-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes alan-logo-sheen{0%,100%{opacity:.5}48%{opacity:1}65%{opacity:.75}}
+@keyframes alan-star-twinkle{0%,100%{opacity:.75;transform:scale(.89)}50%{opacity:1;transform:scale(1.13)}}
+@keyframes alan-ring-spin{to{transform:rotate(360deg)}}
+@keyframes alan-ring-spin-reverse{to{transform:rotate(-360deg)}}
+@keyframes alan-circuit-on{from{stroke-dashoffset:900;opacity:.12}to{stroke-dashoffset:0;opacity:1}}
+@keyframes alan-circuit-pulse{0%,100%{opacity:.52}50%{opacity:1}}
+@keyframes alan-smoke-drift{0%{transform:translate3d(-6%,1%,0) rotate(-8deg) scale(.9);opacity:.60}50%{transform:translate3d(3%,-5%,0) rotate(4deg) scale(1.08);opacity:.88}100%{transform:translate3d(10%,4%,0) rotate(10deg) scale(1.16);opacity:.66}}
+@keyframes alan-trail-move{from{transform:translate3d(-5%,8px,0) rotate(-14deg);opacity:.25}to{transform:translate3d(8%,-14px,0) rotate(-14deg);opacity:.9}}
+@media(min-width:1024px){#inicio .alan-hero-logo{max-width:750px}#inicio .alan-hero-tagline{letter-spacing:.12em}}
+@media(max-width:639px){#inicio.alan-hero-section{padding-top:7.25rem;padding-bottom:4rem;gap:1.5rem}#inicio .alan-hero-logo{width:calc(100% + 10px);max-width:none;margin:12px -5px 14px}#inicio .alan-hero-tagline{letter-spacing:.12em;font-size:clamp(.95rem,4vw,1.2rem);line-height:1.8}#inicio .alan-smoke{filter:blur(25px);opacity:.65}#inicio .alan-light-trail{opacity:.35}}
+@media(prefers-reduced-motion:reduce){#inicio .alan-hero-logo svg,#inicio .alan-title-text,#inicio .alan-logo-shimmer,#inicio .alan-logo-spark,#inicio .alan-hud-spin,#inicio .alan-hud-spin-reverse,#inicio .alan-circuit path,#inicio .alan-circuit-points,#inicio .alan-smoke,#inicio .alan-light-trail,#inicio .alan-hero-particles{animation:none!important;will-change:auto!important}#inicio .alan-circuit path{stroke-dashoffset:0!important}}
