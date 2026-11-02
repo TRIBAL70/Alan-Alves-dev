@@ -1,5 +1,5 @@
 // @ts-nocheck
-export const GPTMAKER_CHAT='https://app.gptmaker.ai/widget/3FB126EEAA8EC3273F6F26205F86C1A5/iframe';
+export const GPTMAKER_CHAT='https://app.gptmaker.ai/widget/3FB85A8868373391373552B57B76C146/iframe';
 const CONSENT='sky-v2-gptmaker-2026-10-23';
 const WA='https://wa.me/5551999938323';
 let contactSession=false,sessionPending=null;
