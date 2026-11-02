@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-const icon = "/assets/a-sites-logo.svg?v=20261102";
+const icon = "/assets/a-sites-logo-3d.svg?v=20261102b";
 const NAV = [
   { hash: "inicio", label: "Início" }, { hash: "sobre", label: "Sobre" },
   { hash: "servicos", label: "Serviços" }, { hash: "robo", label: "Robô de IA" },
