@@ -31,3 +31,17 @@
 .sky-floating .sky-chat>*{flex-shrink:0}.sky-floating .sky-maker-body{flex-shrink:0}
 @media(max-width:600px){.sky-banner-btn{font-size:11px;min-height:38px}}
 @media(prefers-reduced-motion:reduce){.sky-banner-lines{animation:none}.sky-banner-btn{transition:none}}
+
+
+/* Sky IA — ocultar a saudação redundante do cabeçalho interno do GPT Maker
+   O iframe é de origem externa, portanto a faixa é recortada no viewport
+   mantendo a área de mensagens e os controles inferiores funcionais. */
+.sky-maker-loaded .sky-maker-body {
+  overflow: hidden;
+  position: relative;
+}
+.sky-maker-loaded .sky-maker-frame {
+  --sky-gptmaker-greeting-height: 132px;
+  height: calc(100% + var(--sky-gptmaker-greeting-height));
+  transform: translateY(calc(-1 * var(--sky-gptmaker-greeting-height)));
+}
