@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Alan Alves — Desenvolvimento Web, IA e Automações" },
       { property: "og:description", content: "Eu projeto. Eu desenvolvo. Eu automatizo. Fale comigo e crie seu projeto." },
     ],
-    links: [{ rel: "stylesheet", href: "/assets/portfolio-neon.css" }],
+    links: [{ rel: "stylesheet", href: "/assets/portfolio-neon.css" }, { rel: "stylesheet", href: "/assets/hero-neon.css" }],
   }),
   component: Index,
 });
