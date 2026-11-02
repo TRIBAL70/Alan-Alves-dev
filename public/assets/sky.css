@@ -10,7 +10,12 @@
 @media(max-width:600px){.sky-floating{bottom:100px;max-height:calc(100dvh - 122px)}.sky-floating .sky-chat{max-height:calc(100dvh - 122px)}.sky-floating .sky-maker-body{flex-basis:calc(100dvh - 340px);min-height:240px}}
 /* Alan Alves Dev banner under the Sky chat. */
 .sky-banner{flex-shrink:0;padding:12px 12px 4px;border-top:1px solid #1d2a4d;background:#060914}
-.sky-banner-hero{position:relative;overflow:hidden;border:1px solid #00bfff55;border-radius:16px;padding:22px 16px 18px;background:linear-gradient(180deg,#05081499,#050814ee),radial-gradient(ellipse at 85% 0,#8b40ff66,transparent 60%),url(/assets/globe-BxijoBpU.jpg) center/cover;box-shadow:0 0 18px #00bfff22,inset 0 0 24px #8b40ff22}
+.sky-banner-hero{position:relative;overflow:hidden;border:1px solid var(--sky-cyan);border-radius:16px;padding:0;background:var(--sky-banner-background);box-shadow:0 0 12px var(--sky-banner-blue-glow),0 0 18px var(--sky-banner-purple-glow)}
+.sky-banner{--sky-banner-background:#060914;--sky-banner-blue-glow:#00bfff33;--sky-banner-purple-glow:#8b40ff44}
+.sky-banner-title{padding:0 4px 10px}
+.sky-banner-title small{display:block;color:var(--sky-cyan);font-size:10px}
+.sky-banner-title strong{display:block;margin-top:4px;font:700 16px/1.3 'Space Grotesk',Inter,sans-serif}
+.sky-banner-image{display:block;width:100%;aspect-ratio:16/9;object-fit:contain}
 .sky-banner-lines{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(115deg,transparent 0 22px,#00f0ff10 22px 23px),radial-gradient(circle at 20% 70%,#00f0ff55 0 1px,transparent 2px),radial-gradient(circle at 70% 30%,#8b40ff66 0 1px,transparent 2px),radial-gradient(circle at 45% 85%,#00bfff55 0 1px,transparent 2px);animation:skyDrift 12s linear infinite alternate}
 .sky-banner-hero small,.sky-banner-hero strong{position:relative;display:block}
 .sky-banner-hero small{font-size:10px;letter-spacing:.28em;color:#00f0ff;text-shadow:0 0 8px #00f0ff99}
@@ -24,5 +29,5 @@
 @keyframes skyDrift{to{background-position:40px 0,10px -8px,-12px 6px,8px 10px}}
 .sky-floating .sky-chat{overflow-y:auto;overscroll-behavior:contain}
 .sky-floating .sky-chat>*{flex-shrink:0}.sky-floating .sky-maker-body{flex-shrink:0}
-@media(max-width:600px){.sky-banner-hero{padding:14px 12px}.sky-banner-hero strong{font-size:16px}.sky-banner-btn{font-size:11px;min-height:38px}}
+@media(max-width:600px){.sky-banner-btn{font-size:11px;min-height:38px}}
 @media(prefers-reduced-motion:reduce){.sky-banner-lines{animation:none}.sky-banner-btn{transition:none}}
