@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-const icon = "https://id-preview--20b75f97-ca8c-4360-827a-2564e27c09f3.lovable.app/__l5e/assets-v1/b6602dc5-9f3d-4d49-990c-0d989b37afc9/icon.png";
+const icon = "/assets/a-sites-logo.svg?v=20261102";
 const NAV = [
   { hash: "inicio", label: "Início" }, { hash: "sobre", label: "Sobre" },
   { hash: "servicos", label: "Serviços" }, { hash: "robo", label: "Robô de IA" },
