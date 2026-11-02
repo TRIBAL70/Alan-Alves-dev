@@ -1,7 +1,73 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+
+const LINKS = [
+  { label: "Início", hash: "inicio", url: "/#inicio" },
+  { label: "Sobre", hash: "sobre", url: "/#sobre" },
+  { label: "Serviços", hash: "servicos", url: "/#servicos" },
+  { label: "Robô de IA", hash: "robo", url: "/robo-whatsapp" },
+  { label: "Projetos", hash: "projetos", url: "/#projetos" },
+  { label: "Processo", hash: "processo", url: "/#processo" },
+  { label: "Depoimentos", hash: "depoimentos", url: "/#depoimentos" },
+  { label: "Contato", hash: "contato", url: "/#contato" }
+];
+const WHATSAPP = "https://wa.me/5551999938323?text=Ol%C3%A1%20Alan!%20Vi%20seu%20site%20e%20quero%20criar%20meu%20projeto.";
+
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("inicio");
+  useEffect(() => {
+    const update = () => {
+      setScrolled(window.scrollY > 25);
+      if (window.location.pathname !== "/") {
+        setActive("robo");
+        return;
+      }
+      const threshold = window.innerHeight * 0.4;
+      let current = "inicio";
+      for (const item of LINKS) {
+        const el = document.getElementById(item.hash);
+        if (el && el.getBoundingClientRect().top <= threshold) current = item.hash;
+      }
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 6) current = "contato";
+      setActive(current);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
+  }, []);
+  const links = (mobile: boolean) => LINKS.map((item) => (
+    <a
+      key={item.hash}
+      href={item.url}
+      aria-current={active === item.hash ? "page" : undefined}
+      className={active === item.hash ? "aa-active" : undefined}
+      onClick={() => setOpen(false)}
+    >{item.label}</a>
+  ));
+
   return (
-<header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/70 backdrop-blur-xl"><div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 lg:flex lg:justify-between"><a className="flex min-w-0 items-center gap-3 active" href="/#inicio" data-status="active" aria-current="page"><img src="/assets/alan-dev-robot-logo.png" alt="Logo A Sites" width={40} height={40} style={{"width": "40px", "height": "40px", "objectFit": "contain", "borderRadius": "12px", "flexShrink": "0"}} /><span className="min-w-0 leading-tight"><span className="block truncate font-display text-base font-bold tracking-wider">ALAN ALVES</span><span className="block truncate text-[10px] tracking-[0.2em] text-muted-foreground">WEB DEVELOPER • AI AUTOMATION</span></span></a><nav className="hidden items-center gap-6 lg:flex"><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#inicio" data-status="active" aria-current="page">Início</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#sobre" data-status="active" aria-current="page">Sobre</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#servicos" data-status="active" aria-current="page">Serviços</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan" href="/robo-whatsapp">Robô de IA</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#projetos" data-status="active" aria-current="page">Projetos</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#processo" data-status="active" aria-current="page">Processo</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#depoimentos" data-status="active" aria-current="page">Depoimentos</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#contato" data-status="active" aria-current="page">Contato</a></nav><div className="flex items-center gap-2"><a href="https://wa.me/5551999938323?text=Ol%C3%A1%20Alan!%20Vi%20seu%20site%20e%20quero%20criar%20meu%20projeto." target="_blank" rel="noreferrer" className="hidden items-center gap-1 rounded-xl border border-neon-cyan px-4 py-2 text-xs font-semibold tracking-wider text-neon-cyan shadow-glow-cyan transition hover:bg-neon-cyan/10 sm:inline-flex">VAMOS CONVERSAR <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-up-right h-4 w-4" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg></a><button type="button" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((v) => !v)} className="rounded-lg p-2 lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /></svg></button></div></div>{open && (<nav className="border-t border-border bg-background/95 px-4 py-3 lg:hidden"><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#inicio" data-status="active" aria-current="page">Início</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#sobre" data-status="active" aria-current="page">Sobre</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#servicos" data-status="active" aria-current="page">Serviços</a><a onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:text-neon-cyan" href="/robo-whatsapp">Robô de IA</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#projetos" data-status="active" aria-current="page">Projetos</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#processo" data-status="active" aria-current="page">Processo</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#depoimentos" data-status="active" aria-current="page">Depoimentos</a><a className="text-sm text-muted-foreground transition hover:text-neon-cyan active" href="/#contato" data-status="active" aria-current="page">Contato</a></nav>)}</header>
+    <header className="aa-navbar" data-scrolled={String(scrolled)}>
+      <div className="aa-nav-inner">
+        <a href="/#inicio" className="aa-brand" aria-label="Alan Alves Dev — Início" onClick={() => setOpen(false)}>
+          <img src="/assets/alan-dev-robot-logo.png" className="aa-brand-logo" width={44} height={44} alt="" />
+          <span>
+            <span className="aa-brand-name">ALAN ALVES</span>
+            <span className="aa-brand-subtitle">WEB DEVELOPER • AI AUTOMATION</span>
+          </span>
+        </a>
+        <nav aria-label="Navegação principal" className="aa-nav-links">{links(false)}</nav>
+        <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="aa-nav-cta">VAMOS CONVERSAR <ArrowUpRight size={15} aria-hidden="true" /></a>
+        <button type="button" className="aa-nav-toggle" aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open} aria-controls="aa-mobile-menu" onClick={() => setOpen((prev) => !prev)}>
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+      {open && <nav id="aa-mobile-menu" aria-label="Menu no celular" className="aa-mobile-menu">
+        {links(true)}
+        <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="aa-nav-cta" onClick={() => setOpen(false)}>VAMOS CONVERSAR <ArrowUpRight size={15} /></a>
+      </nav>}
+    </header>
   );
 }
