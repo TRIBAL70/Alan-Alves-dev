@@ -11,3 +11,4 @@
 
 - Site is a 1:1 copy of the user's original portfolio: markup in src/components/site keeps the original Tailwind class names and is styled by the original compiled CSS in public/assets (site.css, sky.css, portfolio-neon.css), not src/styles.css — keeps visuals identical to the source site.
 - Original vanilla scripts (Sky chat, portfolio slider) live in src/lib/vendor and are imported only inside useEffect — they touch the DOM and must not run during SSR.
+- The lower Sky chat banner uses a separate title and an intrinsic-aspect image inside the scrollable chat, so artwork cannot overlay or reduce the embedded composer's viewport.
