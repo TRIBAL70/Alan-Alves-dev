@@ -52,7 +52,7 @@ export function Header() {
     <header className="aa-navbar" data-scrolled={String(scrolled)}>
       <div className="aa-nav-inner">
         <a href="/#inicio" className="aa-brand" aria-label="Alan Alves Dev — Início" onClick={() => setOpen(false)}>
-          <img src="/assets/alan-dev-robot-logo.png" className="aa-brand-logo" width={44} height={44} alt="" />
+          <img src="/assets/a-sites-logo-3d.svg?v=20261102b" className="aa-brand-logo" width={44} height={44} alt="" />
           <span>
             <span className="aa-brand-name">ALAN ALVES</span>
             <span className="aa-brand-subtitle">WEB DEVELOPER • AI AUTOMATION</span>
