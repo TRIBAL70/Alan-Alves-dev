@@ -114,10 +114,6 @@ export function HeroSection() {
         </div>
 
         <div className="relative mx-auto w-full max-w-md lg:order-2 lg:max-w-none" style={par(8)}>
-          <div aria-hidden className="absolute left-1/2 top-[44%] aspect-square w-[88%] -translate-x-1/2 -translate-y-1/2 [animation:aan-portal_4s_ease-in-out_infinite]">
-            <div className="absolute inset-0 rounded-full border-2 border-aan-blue shadow-[0_0_30px_var(--aan-blue),inset_0_0_30px_var(--aan-violet)]" />
-            <div className="absolute inset-[-3%] rounded-full border-t-[3px] border-l-[3px] border-aan-magenta/80 [animation:aan-spin_7s_linear_infinite] shadow-[0_0_20px_var(--aan-magenta)]" />
-          </div>
           <img src={retrato} alt="Retrato de Alan Alves" width={700} height={773}
             className="aan-enter-fade relative w-full"
             style={{ animationDelay: ".8s", maskImage: "radial-gradient(ellipse 50% 50% at 50% 48%, black 55%, transparent 100%)" }} />
