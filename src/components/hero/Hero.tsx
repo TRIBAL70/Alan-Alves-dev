@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
-const letreiro = "https://id-preview--20b75f97-ca8c-4360-827a-2564e27c09f3.lovable.app/__l5e/assets-v1/0389119a-2ede-46a0-b009-5e291c894348/letreiro.png";
-const retrato = "https://id-preview--20b75f97-ca8c-4360-827a-2564e27c09f3.lovable.app/__l5e/assets-v1/f7eb4a2c-6114-4514-b470-c4166d999031/retrato.jpg";
+const letreiro = "/assets/alan-alves-original-logo.webp";
+const retrato = "/assets/alan-CUJULnXC.png";
 import { SmokeCanvas } from "./SmokeCanvas";
 
 function WhatsIcon({ className }: { className?: string }) {
