@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
 const retrato = "/assets/alan-CUJULnXC.png";
 
@@ -12,6 +13,48 @@ function WhatsIcon({ className }: { className?: string }) {
 
 
 export function HeroSection() {
+  // Remove o retângulo preto do letreiro preservando as letras azul-cromadas.
+  // O elemento de imagem passa a exibir um PNG com transparência real.
+  const [transparentLettering, setTransparentLettering] = useState<string | null>(null);
+
+  useEffect(() => {
+    const original = new Image();
+    let active = true;
+    original.onload = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        canvas.width = original.naturalWidth;
+        canvas.height = original.naturalHeight;
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        if (!ctx) throw new Error("Canvas indisponível");
+        ctx.drawImage(original, 0, 0);
+        const frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const rgba = frame.data;
+        for (let i = 0; i < rgba.length; i += 4) {
+          const peak = Math.max(rgba[i], rgba[i + 1], rgba[i + 2]);
+          // Fundo preto torna-se transparente, sem cortar a aura neon.
+          const alpha = Math.max(0, Math.min(1, (peak - 7) / 39));
+          if (alpha > 0 && alpha < 1) {
+            rgba[i] = Math.min(255, Math.round(rgba[i] / alpha));
+            rgba[i + 1] = Math.min(255, Math.round(rgba[i + 1] / alpha));
+            rgba[i + 2] = Math.min(255, Math.round(rgba[i + 2] / alpha));
+          }
+          rgba[i + 3] = Math.round(rgba[i + 3] * alpha);
+        }
+        ctx.putImageData(frame, 0, 0);
+        if (active) setTransparentLettering(canvas.toDataURL("image/png"));
+      } catch {
+        if (active) setTransparentLettering("/assets/alan-alves-letreiro-3d.avif");
+      }
+    };
+    original.onerror = () => {
+      if (active) setTransparentLettering("/assets/alan-alves-letreiro-3d.avif");
+    };
+    original.src = "/assets/alan-alves-letreiro-3d.avif";
+    return () => {
+      active = false;
+    };
+  }, []);
   const href = "https://wa.me/5551999938323?text=Ol%C3%A1%20Alan!%20Vi%20seu%20site%20e%20quero%20criar%20meu%20projeto.";
   const socials = [
     { href: "https://www.instagram.com/alan.alves.1?rpxt=MWJhMmxtZm1uMzIxdw==", Icon: Instagram, label: "Instagram" },
@@ -37,7 +80,8 @@ export function HeroSection() {
           <div className="aan-enter aan-reference-lettering" style={{ animationDelay: ".25s" }}>
             <h1 className="m-0 leading-none" aria-label="Alan Alves">
               <img
-                src="/assets/alan-alves-letreiro-3d.avif"
+                src={transparentLettering || "/assets/alan-alves-letreiro-3d.avif"}
+                style={{ opacity: transparentLettering ? 1 : 0 }}
                 alt="Alan Alves"
                 width={1200}
                 height={400}
