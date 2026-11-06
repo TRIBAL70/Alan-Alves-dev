@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
 import { SmokeCanvas } from "./SmokeCanvas";
-const retrato = "/assets/alan-CUJULnXC.png";
+const retrato = "/assets/alan-digital-retrato-ref.jpg";
 
 function WhatsIcon({ className }: { className?: string }) {
   return (
@@ -65,12 +65,11 @@ export function HeroSection() {
 
 
 
-          {/* Estrutura do letreiro conforme código-fonte do Alan Alves Digital.
-              Mantemos o arquivo atual até a transferência do PNG original do projeto de origem. */}
+          {/* Letreiro original extraído do repositório Alan Alves Digital, sem alteração na logo do menu. */}
           <div className="aan-enter relative my-4 select-none" style={{animationDelay:".5s"}}>
             <div className="relative overflow-hidden" style={{maskImage:"radial-gradient(ellipse 60% 60% at 50% 50%, black 70%, transparent 100%)"}}>
               <h1 className="m-0 leading-none" aria-label="Alan Alves">
-                <img src="/assets/alan-alves-original-logo.webp" alt="" width={820} height={240}
+                <img src="/assets/alan-digital-letreiro-ref.png" alt="" width={820} height={240}
                   className="block w-full [animation:aan-breathe_4s_ease-in-out_infinite] mix-blend-screen" />
               </h1>
               <span aria-hidden className="absolute inset-y-0 left-0 w-1/4 bg-[linear-gradient(90deg,transparent,color-mix(in_oklab,var(--aan-white)_45%,transparent),transparent)] mix-blend-overlay [animation:aan-sheen_5s_ease-in-out_1.2s_infinite]" />

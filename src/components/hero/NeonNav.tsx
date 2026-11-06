@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+// Preserve original Alan Alves Dev site logo; only navigation/header styling comes from Alan Alves Digital.
 const icon = "/assets/a-sites-logo-3d.svg?v=20261102b";
 const NAV = [
   { hash: "inicio", label: "Início" }, { hash: "sobre", label: "Sobre" },
@@ -23,7 +24,6 @@ export function NeonNav() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
-      if (window.location.pathname !== "/") { setActive("robo"); return; }
       const atEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
       if (atEnd && document.getElementById("contato")) return setActive("contato");
       let current = "";
@@ -46,7 +46,7 @@ export function NeonNav() {
     <header data-scrolled={scrolled} className="aan-nav fixed inset-x-0 top-0 z-50 font-aan-sans text-aan-white">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 lg:px-8">
         <Link to="/" hash="inicio" className="flex items-center gap-3">
-          <img src={icon} alt="" width={52} height={52} className="size-10 rounded-lg [animation:aan-portal_3s_ease-in-out_infinite] shadow-[0_0_14px_var(--aan-violet)]" />
+          <img src={icon} alt="" width={52} height={52} className="size-10 rounded-lg [animation:aan-portal_3s_ease-in-out_infinite] shadow-[0_0_14px_var(--aan-cyan)]" />
           <span className="leading-tight">
             <span className="block font-aan-display text-base font-bold tracking-wider">ALAN ALVES</span>
             <span className="block text-[10px] tracking-[0.25em] text-aan-blue">WEB DEVELOPER • AI AUTOMATION</span>
