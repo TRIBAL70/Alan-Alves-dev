@@ -428,3 +428,9 @@
       linear-gradient(to bottom, #040b1b 0%, transparent 9%, transparent 78%, #040b1b 100%);
   }
 }
+
+/* The restored portrait is the original fully transparent PNG; preserve its intrinsic alpha. */
+#inicio.aan-blue-hero .aan-portrait-image {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
