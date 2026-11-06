@@ -43,15 +43,30 @@ export function HeroSection() {
           </div>
 
           <div className="aan-enter relative my-5 flex justify-center sm:my-8" style={{ animationDelay: ".35s" }}>
-            <img
-              src="/assets/alan-alves-wordmark-2026.webp"
-              alt="ALAN ALVES"
-              width={800}
-              height={194}
-              fetchPriority="high"
-              decoding="async"
-              className="block h-auto w-full max-w-[800px] object-contain mix-blend-screen"
-            />
+            <svg
+              role="img"
+              aria-label="ALAN ALVES"
+              viewBox="0 0 800 194"
+              className="block h-auto w-full max-w-[800px]"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>ALAN ALVES</title>
+              <defs>
+                {/* A imagem é originalmente preta; converter o preto em alfa no render, sem cortar o brilho neon. */}
+                <filter id="alan-wordmark-transparent" x="-20%" y="-45%" width="140%" height="190%" colorInterpolationFilters="sRGB">
+                  <feColorMatrix
+                    type="matrix"
+                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0.9 0.9 0.9 0"
+                  />
+                </filter>
+              </defs>
+              <image
+                href="/assets/alan-alves-wordmark-2026.webp"
+                width="800"
+                height="194"
+                filter="url(#alan-wordmark-transparent)"
+              />
+            </svg>
           </div>
 
           <h1 className="border-l-4 border-aan-white pl-4 font-aan-display text-lg font-bold tracking-[0.18em] sm:text-2xl">
