@@ -177,3 +177,25 @@
 @media (prefers-reduced-motion: reduce) {
   .aan-blue-hero .aan-brand-spark, .aan-blue-hero .aan-electric-pulse { animation: none !important; }
 }
+
+/* Cabeçalho de referência Alan Alves Digital; apenas topo e letreiro.
+   A logo do site, retrato, botões, seções e demais componentes não são modificados. */
+.aan-nav { border-bottom-color: rgba(0, 198, 255, .55); box-shadow: 0 1px 14px rgba(0, 160, 255, .15); }
+.aan-nav[data-scrolled="true"] { background: rgba(3, 7, 17, .93); }
+.aan-nav > div { max-width: 1340px; }
+.aan-nav a:focus-visible, .aan-nav button:focus-visible { outline: 2px solid #38e8ff; outline-offset: 3px; }
+.aan-source-brand { position: relative; width: 100%; max-width: 740px; margin: 1.2rem 0 1.6rem; isolation: isolate; }
+.aan-source-lettering { position: relative; margin: 0; line-height: 0; overflow: hidden; }
+.aan-source-lettering-image {
+  display: block; width: 100%; height: auto; object-fit: contain; mix-blend-mode: screen;
+  filter: drop-shadow(0 0 10px rgba(0, 171, 255, .28)) contrast(1.1);
+}
+.aan-source-lettering-glint {
+  position: absolute; top: 10%; bottom: 10%; left: -35%; width: 27%; pointer-events: none;
+  background: linear-gradient(90deg,transparent,rgba(170,237,255,.12),transparent);
+  transform: skewX(-16deg); animation: aan-source-glint 8s ease-in-out infinite;
+}
+@keyframes aan-source-glint { 0%, 60%, 100% { left: -35%; opacity:0; } 70% { opacity:.6; } 91% { left: 120%; opacity:0; } }
+@media (max-width: 1023px) { .aan-source-brand { max-width: 690px; margin: 1.15rem auto 1.5rem; } }
+@media (max-width: 520px) { .aan-source-brand { margin: 1rem auto 1.25rem; } }
+@media (prefers-reduced-motion:reduce) { .aan-source-lettering-glint { animation:none; opacity:0; } }

@@ -30,23 +30,21 @@ export function HeroSection() {
           </div>
 
 
-          <div className="aan-enter aan-premium-brand" style={{ animationDelay: ".35s" }}>
-            <h1 className="aan-premium-wordmark" aria-label="Alan Alves">
-              <span>ALAN</span><span>ALVES</span>
+          {/* Letreiro do Alan Alves Digital; preserva a logo atual da barra superior. */}
+          <div className="aan-enter aan-source-brand" style={{ animationDelay: ".35s" }}>
+            <h1 className="aan-source-lettering" aria-label="Alan Alves">
+              <span className="sr-only">Alan Alves</span>
+              <img
+                src="/assets/alan-alves-original-logo.webp"
+                alt=""
+                width={920}
+                height={230}
+                decoding="async"
+                fetchPriority="high"
+                className="aan-source-lettering-image"
+              />
+              <span className="aan-source-lettering-glint" aria-hidden="true" />
             </h1>
-            <svg viewBox="0 0 800 56" aria-hidden="true" focusable="false" className="aan-brand-flourish">
-              <defs>
-                <linearGradient id="alanBrandBlue" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#00d5ff" stopOpacity=".1"/>
-                  <stop offset="34%" stopColor="#00bfff"/>
-                  <stop offset="64%" stopColor="#c5faff"/>
-                  <stop offset="100%" stopColor="#00bfff" stopOpacity=".1"/>
-                </linearGradient>
-              </defs>
-              <path d="M10 15 C170 55 252 6 398 31 S640 14 790 15" stroke="url(#alanBrandBlue)" strokeWidth="4" fill="none"/>
-              <path d="M80 27 Q400 48 720 27" stroke="#4adfff" strokeWidth="1.5" fill="none" opacity=".72"/>
-              <path d="M398 9 L404 25 L421 31 L404 36 L398 53 L392 36 L374 31 L392 25 Z" fill="#dffcff" className="aan-brand-spark"/>
-            </svg>
           </div>
 
           <h2 className="border-l-4 border-aan-white pl-4 font-aan-display text-lg font-bold tracking-[0.18em] sm:text-2xl">
