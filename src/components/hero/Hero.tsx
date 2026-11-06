@@ -33,14 +33,14 @@ export function HeroSection() {
 
 
 
-          {/* Original artwork from GitHub, unchanged. */}
+          {/* Arte 3D azul-cromada otimizada para o cabeçalho. */}
           <div className="aan-enter aan-reference-lettering" style={{ animationDelay: ".25s" }}>
             <h1 className="m-0 leading-none" aria-label="Alan Alves">
               <img
-                src="/assets/alan-digital-letreiro-ref.png"
+                src="/assets/alan-alves-letreiro-3d.avif"
                 alt="Alan Alves"
-                width={820}
-                height={240}
+                width={1200}
+                height={400}
                 decoding="async"
                 fetchPriority="high"
                 className="aan-reference-lettering-image"
