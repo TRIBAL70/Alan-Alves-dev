@@ -159,6 +159,8 @@ export function HeroSection() {
               maskImage: "radial-gradient(ellipse 77% 75% at 50% 46%, black 46%, rgba(0,0,0,.98) 60%, rgba(0,0,0,.72) 71%, transparent 97%)",
             }}
           />
+          {/* A soft edge vignette hides the embedded photo rectangle without replacing the source portrait. */}
+          <div aria-hidden="true" className="aan-portrait-soft-edges absolute inset-0 z-[11] pointer-events-none" />
           <figcaption className="aan-projects-availability absolute bottom-[9%] left-[4%] z-20">
             <span className="aan-projects-online"><span className="aan-status-dot size-3 rounded-full" /> ONLINE</span>
             <strong>DISPONÍVEL PARA<br />PROJETOS</strong>
