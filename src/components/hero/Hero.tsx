@@ -19,10 +19,10 @@ export function HeroSection() {
   ];
 
   return (
-    <section id="inicio" className="aan-hero relative min-h-screen overflow-hidden pt-16 font-aan-sans text-aan-white">
+    <section id="inicio" className="aan-hero aan-blue-hero relative min-h-screen overflow-hidden pt-16 font-aan-sans text-aan-white">
       <div className="aan-enter-fade absolute inset-0" style={{ animationDelay: ".3s" }}><SmokeCanvas /></div>
 
-      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-7 px-4 pb-24 pt-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)] lg:gap-10 lg:px-8 lg:pt-12">
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-7 px-4 pb-24 pt-8 lg:min-h-[730px] lg:grid-cols-[minmax(0,1.06fr)_minmax(0,.94fr)] lg:gap-10 lg:px-8 lg:pt-12">
         <div className="relative z-10">
           <div className="aan-enter inline-flex items-center gap-3 rounded-full border-2 border-aan-violet bg-aan-space/60 px-5 py-2 shadow-[0_0_16px_var(--aan-violet)]">
             <span className="aan-status-dot size-3 rounded-full" />
@@ -30,51 +30,31 @@ export function HeroSection() {
           </div>
 
 
-          <div className="aan-enter relative mx-auto mt-5 h-[260px] max-w-[350px] lg:hidden" style={{ animationDelay: ".25s" }}>
-            <img
-              src={retrato}
-              alt="Foto original de Alan Alves"
-              width={700}
-              height={773}
-              decoding="async"
-              className="h-full w-full object-contain object-center"
-              style={{ maskImage: "radial-gradient(ellipse 63% 64% at 50% 48%, black 53%, transparent 100%)" }}
-            />
-          </div>
-
-          <div className="aan-enter relative my-5 flex justify-center sm:my-8" style={{ animationDelay: ".35s" }}>
-            <svg
-              role="img"
-              aria-label="ALAN ALVES"
-              viewBox="0 0 800 194"
-              className="block h-auto w-full max-w-[800px]"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>ALAN ALVES</title>
+          <div className="aan-enter aan-premium-brand" style={{ animationDelay: ".35s" }}>
+            <h1 className="aan-premium-wordmark" aria-label="Alan Alves">
+              <span>ALAN</span><span>ALVES</span>
+            </h1>
+            <svg viewBox="0 0 800 56" aria-hidden="true" focusable="false" className="aan-brand-flourish">
               <defs>
-                {/* A imagem é originalmente preta; converter o preto em alfa no render, sem cortar o brilho neon. */}
-                <filter id="alan-wordmark-transparent" x="-20%" y="-45%" width="140%" height="190%" colorInterpolationFilters="sRGB">
-                  <feColorMatrix
-                    type="matrix"
-                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0.9 0.9 0.9 0 0"
-                  />
-                </filter>
+                <linearGradient id="alanBrandBlue" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#00d5ff" stopOpacity=".1"/>
+                  <stop offset="34%" stopColor="#00bfff"/>
+                  <stop offset="64%" stopColor="#c5faff"/>
+                  <stop offset="100%" stopColor="#00bfff" stopOpacity=".1"/>
+                </linearGradient>
               </defs>
-              <image
-                href="/assets/alan-alves-wordmark-2026.webp"
-                width="800"
-                height="194"
-                filter="url(#alan-wordmark-transparent)"
-              />
+              <path d="M10 15 C170 55 252 6 398 31 S640 14 790 15" stroke="url(#alanBrandBlue)" strokeWidth="4" fill="none"/>
+              <path d="M80 27 Q400 48 720 27" stroke="#4adfff" strokeWidth="1.5" fill="none" opacity=".72"/>
+              <path d="M398 9 L404 25 L421 31 L404 36 L398 53 L392 36 L374 31 L392 25 Z" fill="#dffcff" className="aan-brand-spark"/>
             </svg>
           </div>
 
-          <h1 className="border-l-4 border-aan-white pl-4 font-aan-display text-lg font-bold tracking-[0.18em] sm:text-2xl">
+          <h2 className="border-l-4 border-aan-white pl-4 font-aan-display text-lg font-bold tracking-[0.18em] sm:text-2xl">
             <span className="aan-enter inline-block" style={{ animationDelay: "1s" }}>EU PROJETO.</span>{" "}
             <span className="aan-enter aan-text-cyan inline-block" style={{ animationDelay: "1.15s" }}>EU DESENVOLVO.</span>
             <br />
-            <span className="aan-enter aan-text-magenta inline-block" style={{ animationDelay: "1.3s" }}>EU AUTOMATIZO.</span>
-          </h1>
+            <span className="aan-enter aan-text-cyan inline-block" style={{ animationDelay: "1.3s" }}>EU AUTOMATIZO.</span>
+          </h2>
           <p className="aan-enter mt-5 max-w-xl text-base leading-relaxed text-aan-white/85 sm:text-lg" style={{ animationDelay: "1.4s" }}>
             Desenvolvedor web e especialista em automação e inteligência artificial. Crio sites, sistemas e robôs de WhatsApp que atendem, vendem e agendam por você — 24 horas por dia.
           </p>
@@ -102,17 +82,38 @@ export function HeroSection() {
 
         </div>
 
-        <div className="relative mx-auto hidden w-full max-w-lg items-center justify-center lg:flex">
+
+        <figure className="aan-portrait-panel relative z-10 mx-auto w-full max-w-xl" aria-label="Foto de Alan Alves">
+          <div className="aan-portrait-energy" aria-hidden="true">
+            <svg viewBox="0 0 640 760" preserveAspectRatio="xMidYMid slice" className="h-full w-full" focusable="false">
+              <defs>
+                <filter id="aanElectricBlur"><feGaussianBlur stdDeviation="7"/></filter>
+                <linearGradient id="aanElectricLine" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stopColor="#007fff"/><stop offset="50%" stopColor="#00e5ff"/><stop offset="100%" stopColor="#44abff"/>
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="url(#aanElectricLine)" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M28 50L80 122 60 162 139 222 116 287 177 334 150 412 220 465 190 533" strokeWidth="19" opacity=".45" filter="url(#aanElectricBlur)" className="aan-electric-pulse"/>
+                <path d="M28 50L80 122 60 162 139 222 116 287 177 334 150 412 220 465 190 533" strokeWidth="2.4" opacity=".95" className="aan-electric-pulse"/>
+                <path d="M603 40L544 110 566 178 510 235 548 315 482 373 523 454 456 531 499 586 442 674" strokeWidth="23" opacity=".5" filter="url(#aanElectricBlur)" className="aan-electric-pulse aan-electric-delay"/>
+                <path d="M603 40L544 110 566 178 510 235 548 315 482 373 523 454 456 531 499 586 442 674" strokeWidth="2.4" opacity=".95" className="aan-electric-pulse aan-electric-delay"/>
+              </g>
+            </svg>
+          </div>
           <img
             src={retrato}
-            alt="Foto original de Alan Alves"
+            alt="Retrato de Alan Alves"
             width={700}
             height={773}
             decoding="async"
-            className="aan-enter-fade w-full object-contain"
-            style={{ animationDelay: ".5s", maskImage: "radial-gradient(ellipse 59% 60% at 50% 48%, black 58%, transparent 100%)" }}
+            fetchPriority="high"
+            className="aan-portrait-image relative z-10 block h-auto w-full object-contain"
           />
-        </div>
+          <figcaption className="aan-projects-availability absolute bottom-[9%] left-[4%] z-20">
+            <span className="aan-projects-online"><span className="aan-status-dot size-3 rounded-full" /> ONLINE</span>
+            <strong>DISPONÍVEL PARA<br />PROJETOS</strong>
+          </figcaption>
+        </figure>
       </div>
 
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-40 overflow-hidden">

@@ -98,3 +98,82 @@
     animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important;
   }
 }
+
+/* Alan Alves Dev — hero visual aprovado: retrato à direita, tipografia prateada à esquerda, energia somente azul. */
+.aan-blue-hero {
+  --aan-magenta: var(--aan-blue);
+  --aan-violet: var(--aan-cyan);
+  background: radial-gradient(ellipse at 75% 43%, #062d56 0%, #03152c 40%, #020816 76%);
+}
+.aan-blue-hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(circle at 72% 38%, rgba(0,179,255,.23), transparent 44%),
+    repeating-linear-gradient(115deg, transparent 0 120px, rgba(0,188,255,.016) 121px 122px, transparent 124px 210px);
+}
+.aan-blue-hero .aan-btn {
+  background: linear-gradient(110deg, #0079ed, #00c8ff 55%, #0056d7);
+  border: 1px solid #6eefff; box-shadow: 0 0 22px rgba(0,195,255,.48), inset 0 0 10px rgba(255,255,255,.22);
+}
+.aan-blue-hero .aan-border::before {
+  background: conic-gradient(from var(--aan-ang), transparent 0 72%, #43dfff 86%, transparent);
+}
+.aan-blue-hero .aan-social-ring { border-color: rgba(30,195,255,.72); box-shadow: 0 0 10px rgba(0,194,255,.25); }
+.aan-premium-brand { margin: 1.6rem 0 1.3rem; width: 100%; max-width: 740px; }
+.aan-premium-wordmark {
+  display: flex; align-items: baseline; gap: .14em; white-space: nowrap;
+  font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: clamp(2.9rem, 6.3vw, 6.2rem);
+  font-weight: 700; line-height: 1; letter-spacing: -.055em;
+  color: #f5fbff;
+  -webkit-text-stroke: 1px rgba(82,225,255,.7);
+  text-shadow: 0 1px 0 #b7f8ff, 1px 2px 0 #158de9, 2px 4px 0 #093c84,
+    0 0 10px rgba(2,189,255,.43), 0 0 22px rgba(0,133,255,.30);
+  filter: drop-shadow(0 4px 12px rgba(0,124,255,.25));
+}
+.aan-premium-wordmark span { min-width: 0; }
+.aan-premium-wordmark span:first-child { margin-right: .12em; }
+.aan-brand-flourish { width: 100%; max-width: 700px; height: auto; display: block; margin-top: -.08em; filter: drop-shadow(0 0 7px #00a6ff); }
+.aan-brand-spark { filter: drop-shadow(0 0 5px #00d5ff); animation: aan-blue-spark 5s ease-in-out infinite; transform-origin: 50% 50%; }
+@keyframes aan-blue-spark { 0%, 100% {opacity:.6;} 50% {opacity:1;} }
+.aan-portrait-panel { isolation: isolate; padding: 14px 0 10px; min-width:0; }
+.aan-portrait-panel::before {
+  content: ""; position: absolute; inset: 12% -4% 14%; z-index: -2; pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(0,143,255,.38), rgba(0,53,113,.10) 52%, transparent 70%);
+  filter: blur(23px);
+}
+.aan-portrait-energy { position: absolute; inset: -4% -8% -2%; overflow: visible; pointer-events: none; z-index: -1; opacity: .87; }
+.aan-portrait-image {
+  mask-image: linear-gradient(to bottom, #000 0%, #000 76%, rgba(0,0,0,.9) 86%, transparent 100%);
+  filter: drop-shadow(0 0 15px rgba(0,176,255,.18));
+}
+.aan-projects-availability {
+  padding: .75rem 1.1rem; border:1.5px solid #22dcff; border-radius: 1.15rem;
+  background: rgba(1,13,29,.82); backdrop-filter: blur(8px);
+  box-shadow: 0 0 14px rgba(0,205,255,.48), inset 0 0 14px rgba(0,205,255,.1);
+  font-family: "Orbitron", system-ui, sans-serif;
+}
+.aan-projects-online { display:flex; align-items:center; gap:.5rem; font-weight:700; font-size:.8rem; letter-spacing:.1em; color:#58fca1; }
+.aan-projects-availability strong { display:block; margin-top:.3rem; color:white; font-size:clamp(.67rem,.95vw,1rem); line-height:1.3; }
+.aan-electric-pulse { animation: aan-blue-bolt 3.8s ease-in-out infinite; }
+.aan-electric-delay { animation-delay: -1.8s; }
+@keyframes aan-blue-bolt { 0%, 100% {opacity:.38} 47% {opacity:1} 52% {opacity:.44} 60% {opacity:.9} }
+.aan-blue-hero .aan-text-magenta { color: var(--aan-cyan); text-shadow: 0 0 8px rgba(0,195,255,.38); }
+@media (min-width: 1024px) {
+  .aan-blue-hero .aan-premium-wordmark { font-size: clamp(3.1rem, 5.25vw, 6rem); }
+  .aan-blue-hero .aan-portrait-panel { align-self: center; }
+}
+@media (max-width: 1023px) {
+  .aan-premium-brand { margin-top: 1.5rem; }
+  .aan-premium-wordmark { font-size: clamp(2.15rem, 10.5vw, 5.8rem); justify-content: center; }
+  .aan-brand-flourish { margin-inline: auto; }
+  .aan-portrait-panel { max-width: 530px; margin-top: 1rem; }
+  .aan-projects-availability { left: 6%; bottom: 13%; }
+}
+@media (max-width: 440px) {
+  .aan-premium-wordmark { font-size: clamp(2.1rem, 9.6vw, 3.2rem); }
+  .aan-projects-availability { padding:.55rem .8rem; }
+  .aan-projects-online { font-size:.66rem; }
+  .aan-projects-availability strong { font-size:.67rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aan-blue-hero .aan-brand-spark, .aan-blue-hero .aan-electric-pulse { animation: none !important; }
+}

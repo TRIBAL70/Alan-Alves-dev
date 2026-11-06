@@ -13,7 +13,7 @@ export function SmokeCanvas() {
     const ctx = c.getContext("2d");
     if (!ctx) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const css = getComputedStyle(document.documentElement);
+    const css = getComputedStyle(c);
     const col = {
       blue: css.getPropertyValue("--aan-blue").trim(),
       cyan: css.getPropertyValue("--aan-cyan").trim(),
