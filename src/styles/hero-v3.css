@@ -218,3 +218,124 @@
 @media (prefers-reduced-motion:reduce) {
  .aan-source-bolt {animation:none!important;opacity:.30!important;}
 }
+
+
+/* 2026 hero atmospheric integration (background-only).
+   Keep all brand/photo assets and UI as independent components. */
+.aan-blue-hero {
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 55% 64% at 78% 48%, rgba(0,105,225,.25), transparent 84%),
+    radial-gradient(ellipse 30% 45% at 97% 62%, rgba(95,28,202,.12), transparent 82%),
+    linear-gradient(108deg, #020813 0%, #030b1c 44%, #031127 78%, #020913 100%);
+}
+.aan-blue-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 31%, rgba(60,214,255,.29) 0 1px, transparent 2px),
+    radial-gradient(circle at 56% 19%, rgba(170,219,255,.30) 0 1px, transparent 2px),
+    radial-gradient(circle at 89% 68%, rgba(100,194,255,.29) 0 1px, transparent 2px);
+  background-size: 260px 190px, 370px 275px, 450px 335px;
+  opacity: .60;
+}
+.aan-aurora-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aan-aurora-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 34% at 83% 24%, rgba(5,98,242,.17), transparent 80%),
+    radial-gradient(ellipse 40% 30% at 80% 94%, rgba(85,31,223,.15), transparent 82%),
+    radial-gradient(ellipse 31% 48% at -6% 39%, rgba(5,130,255,.17), transparent 85%);
+  mix-blend-mode: screen;
+}
+.aan-aurora-cloud {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  will-change: transform;
+  filter: blur(25px) saturate(1.45);
+  mix-blend-mode: screen;
+  opacity: .68;
+  animation: aan-aurora-float 17s ease-in-out infinite alternate;
+}
+.aan-aurora-cloud-left {
+  left: -22%; top: 2%; width: 64%; height: 90%;
+  background:
+    radial-gradient(ellipse 37% 26% at 29% 25%, rgba(0,205,255,.49), transparent 75%),
+    radial-gradient(ellipse 23% 43% at 58% 58%, rgba(8,88,248,.38), transparent 80%),
+    radial-gradient(ellipse 29% 18% at 31% 85%, rgba(82,35,219,.32), transparent 82%);
+  transform: rotate(-14deg);
+}
+.aan-aurora-cloud-right {
+  right: -19%; top: -12%; width: 68%; height: 110%;
+  background:
+    radial-gradient(ellipse 18% 36% at 73% 18%, rgba(0,171,255,.48), transparent 88%),
+    radial-gradient(ellipse 31% 31% at 69% 53%, rgba(19,115,251,.55), transparent 79%),
+    radial-gradient(ellipse 23% 28% at 95% 67%, rgba(114,26,221,.42), transparent 86%),
+    radial-gradient(ellipse 28% 21% at 31% 81%, rgba(4,140,253,.40), transparent 90%);
+  animation-delay: -8s;
+}
+.aan-aurora-cloud-bottom {
+  left: 13%; right: 2%; bottom: -37%; width: 86%; height: 73%;
+  background:
+    radial-gradient(ellipse 33% 27% at 24% 60%, rgba(0,157,255,.42), transparent 88%),
+    radial-gradient(ellipse 28% 33% at 67% 46%, rgba(114,23,209,.33), transparent 91%),
+    radial-gradient(ellipse 22% 22% at 82% 29%, rgba(0,169,255,.40), transparent 85%);
+  animation-delay: -4s;
+}
+.aan-aurora-sparks {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(166,235,255,.92) .8px, transparent 1.6px),
+    radial-gradient(circle, rgba(36,187,255,.65) 1px, transparent 2.2px);
+  background-size: 173px 167px, 307px 263px;
+  background-position: 33px 44px, 88px 13px;
+  mask-image: linear-gradient(to bottom, transparent, black 14%, black 87%, transparent);
+  opacity: .25;
+}
+.aan-blue-hero > .aan-enter-fade.absolute.inset-0 {
+  z-index: 0;
+  opacity: .74;
+  mix-blend-mode: screen;
+}
+.aan-blue-hero > .pointer-events-none.absolute.inset-0 { z-index: 0; }
+/* Feather the existing original photo's rectangular edges into the atmospheric background.
+   This does not edit, regenerate or recolor the photo. */
+.aan-blue-hero .aan-portrait-image {
+  -webkit-mask-image: radial-gradient(ellipse 81% 78% at 50% 41%, #000 57%, rgba(0,0,0,.92) 70%, transparent 99%);
+  mask-image: radial-gradient(ellipse 81% 78% at 50% 41%, #000 57%, rgba(0,0,0,.92) 70%, transparent 99%);
+}
+.aan-blue-hero .aan-portrait-panel::before {
+  background: radial-gradient(ellipse at 50% 40%, rgba(0,163,255,.25), rgba(4,50,140,.12) 49%, transparent 72%);
+  filter: blur(28px);
+}
+.aan-blue-hero .aan-portrait-energy { opacity: .72; }
+.aan-blue-hero > .pointer-events-none.absolute.inset-x-0.bottom-0 { z-index: 1; }
+@keyframes aan-aurora-float {
+  0% { transform: translate3d(-2%, -2%, 0) scale(1.03); }
+  100% { transform: translate3d(3%, 3%, 0) scale(1.12); }
+}
+@media (max-width: 767px) {
+  .aan-aurora-cloud-left { left:-38%; width:100%; }
+  .aan-aurora-cloud-right { right:-44%; width:125%; top:26%; height:64%; }
+  .aan-aurora-cloud-bottom { bottom:-18%; }
+  .aan-aurora-cloud { opacity:.46; filter:blur(30px) saturate(1.2); }
+  .aan-blue-hero .aan-portrait-image {
+    -webkit-mask-image: radial-gradient(ellipse 85% 76% at 50% 41%, #000 53%, rgba(0,0,0,.92) 68%, transparent 100%);
+    mask-image: radial-gradient(ellipse 85% 76% at 50% 41%, #000 53%, rgba(0,0,0,.92) 68%, transparent 100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aan-aurora-cloud { animation:none!important; will-change:auto; }
+}

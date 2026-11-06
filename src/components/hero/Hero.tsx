@@ -53,6 +53,13 @@ export function HeroSection() {
 
   return (
     <section id="inicio" className="aan-hero aan-blue-hero relative min-h-screen overflow-hidden pt-16 font-aan-sans text-aan-white">
+      {/* Background atmosphere only: logo, portrait, navigation and interactive content remain independent. */}
+      <div className="aan-aurora-bg" aria-hidden="true">
+        <span className="aan-aurora-cloud aan-aurora-cloud-left" />
+        <span className="aan-aurora-cloud aan-aurora-cloud-right" />
+        <span className="aan-aurora-cloud aan-aurora-cloud-bottom" />
+        <span className="aan-aurora-sparks" />
+      </div>
       <div className="aan-enter-fade absolute inset-0" style={{ animationDelay: ".3s" }}><SmokeCanvas /></div>
       <SourceLightning />
 
@@ -158,7 +165,7 @@ export function HeroSection() {
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-40 overflow-hidden">
         <svg viewBox="0 0 2400 160" preserveAspectRatio="none" className="absolute bottom-0 h-full w-[200%] [animation:aan-wave_14s_linear_infinite]">
           <path d="M0 110 Q300 40 600 110 T1200 110 T1800 110 T2400 110" stroke="var(--aan-blue)" strokeWidth="3" fill="none" style={{ filter: "drop-shadow(0 0 8px var(--aan-cyan))" }} />
-          <path d="M0 130 Q300 80 600 130 T1200 130 T1800 130 T2400 130" stroke="var(--aan-magenta)" strokeWidth="2" fill="none" style={{ filter: "drop-shadow(0 0 8px var(--aan-magenta))" }} />
+          <path d="M0 130 Q300 80 600 130 T1200 130 T1800 130 T2400 130" stroke="#9c3aff" strokeWidth="2" fill="none" style={{ filter: "drop-shadow(0 0 9px #9c3aff)" }} />
         </svg>
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-aan-space" />
       </div>
