@@ -414,3 +414,17 @@
 @media(prefers-reduced-motion:reduce) {
   #inicio.aan-blue-hero .aan-aurora-cloud {animation:none}
 }
+
+/* Photo edge continuity: gently merge every outer border with the navy page. */
+#inicio.aan-blue-hero .aan-portrait-soft-edges {
+  background:
+    linear-gradient(to right, #040b1b 0%, rgba(4,11,27,.91) 3%, transparent 20%, transparent 80%, rgba(4,11,27,.91) 97%, #040b1b 100%),
+    linear-gradient(to bottom, #040b1b 0%, transparent 10%, transparent 81%, #040b1b 100%);
+}
+@media (max-width: 767px) {
+  #inicio.aan-blue-hero .aan-portrait-soft-edges {
+    background:
+      linear-gradient(to right, #040b1b 0%, transparent 15%, transparent 85%, #040b1b 100%),
+      linear-gradient(to bottom, #040b1b 0%, transparent 9%, transparent 78%, #040b1b 100%);
+  }
+}
