@@ -11,6 +11,39 @@ function WhatsIcon({ className }: { className?: string }) {
   );
 }
 
+
+const SOURCE_STARS = [
+  { l: "48%", t: "6%", d: "0s", s: 26 }, { l: "48%", t: "78%", d: "1.1s", s: 22 },
+  { l: "12%", t: "30%", d: ".6s", s: 12 }, { l: "88%", t: "18%", d: "1.7s", s: 14 },
+  { l: "70%", t: "86%", d: "2.3s", s: 10 },
+];
+const SOURCE_CIRCUITS: [string, string, string][] = [
+  ["M30 120 H160 L190 90 H330", "var(--aan-cyan)", "0s"],
+  ["M890 120 H760 L730 150 H600", "var(--aan-cyan)", ".8s"],
+  ["M60 170 H200 L230 195 H380", "var(--aan-blue)", "1.6s"],
+  ["M860 60 H720 L690 35 H560", "var(--aan-blue)", "2.2s"],
+];
+const SOURCE_BOLTS: [string, string, string][] = [
+  ["M70 0 L95 90 L60 150 L110 260 L80 340", "7s", ".8s"],
+  ["M1380 40 L1340 140 L1395 220 L1350 330 L1400 430", "9s", "2.4s"],
+  ["M1250 520 L1300 600 L1260 680 L1320 780", "8s", "4.1s"],
+  ["M30 480 L90 540 L50 620 L120 700", "10s", "5.6s"],
+  ["M900 20 L880 110 L930 170 L900 260", "11s", "3.2s"],
+];
+function SourceLightning() {
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_30%,color-mix(in_oklab,var(--aan-blue)_30%,transparent),transparent_60%)] [animation:aan-source-flash_9s_ease-in-out_2.4s_infinite] opacity-0" />
+      <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" fill="none">
+        {SOURCE_BOLTS.map(([d,dur,delay]) => (
+          <path key={d} d={d} className="aan-source-bolt" stroke="var(--aan-cyan)" strokeWidth="2" strokeLinejoin="round" opacity="0"
+            style={{animation: `aan-source-bolt ${dur} linear ${delay} infinite`, filter:"drop-shadow(0 0 6px var(--aan-cyan)) drop-shadow(0 0 16px var(--aan-blue))"}} />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 export function HeroSection() {
   const href = "https://wa.me/5551999938323?text=Ol%C3%A1%20Alan!%20Vi%20seu%20site%20e%20quero%20criar%20meu%20projeto.";
   const socials = [
@@ -21,6 +54,7 @@ export function HeroSection() {
   return (
     <section id="inicio" className="aan-hero aan-blue-hero relative min-h-screen overflow-hidden pt-16 font-aan-sans text-aan-white">
       <div className="aan-enter-fade absolute inset-0" style={{ animationDelay: ".3s" }}><SmokeCanvas /></div>
+      <SourceLightning />
 
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-7 px-4 pb-24 pt-8 lg:min-h-[730px] lg:grid-cols-[minmax(0,1.06fr)_minmax(0,.94fr)] lg:gap-10 lg:px-8 lg:pt-12">
         <div className="relative z-10">
@@ -30,21 +64,29 @@ export function HeroSection() {
           </div>
 
 
-          {/* Letreiro do Alan Alves Digital; preserva a logo atual da barra superior. */}
-          <div className="aan-enter aan-source-brand" style={{ animationDelay: ".35s" }}>
-            <h1 className="aan-source-lettering" aria-label="Alan Alves">
-              <span className="sr-only">Alan Alves</span>
-              <img
-                src="/assets/alan-alves-original-logo.webp"
-                alt=""
-                width={920}
-                height={230}
-                decoding="async"
-                fetchPriority="high"
-                className="aan-source-lettering-image"
-              />
-              <span className="aan-source-lettering-glint" aria-hidden="true" />
-            </h1>
+
+          {/* Estrutura do letreiro conforme código-fonte do Alan Alves Digital.
+              Mantemos o arquivo atual até a transferência do PNG original do projeto de origem. */}
+          <div className="aan-enter relative my-4 select-none" style={{animationDelay:".5s"}}>
+            <div className="relative overflow-hidden" style={{maskImage:"radial-gradient(ellipse 60% 60% at 50% 50%, black 70%, transparent 100%)"}}>
+              <h1 className="m-0 leading-none" aria-label="Alan Alves">
+                <img src="/assets/alan-alves-original-logo.webp" alt="" width={820} height={240}
+                  className="block w-full [animation:aan-breathe_4s_ease-in-out_infinite] mix-blend-screen" />
+              </h1>
+              <span aria-hidden className="absolute inset-y-0 left-0 w-1/4 bg-[linear-gradient(90deg,transparent,color-mix(in_oklab,var(--aan-white)_45%,transparent),transparent)] mix-blend-overlay [animation:aan-sheen_5s_ease-in-out_1.2s_infinite]" />
+            </div>
+            <svg aria-hidden viewBox="0 0 920 230" className="pointer-events-none absolute inset-0 h-full w-full" fill="none">
+              {SOURCE_CIRCUITS.map(([d,c,delay]) => (
+                <path key={d} d={d} stroke={c} strokeWidth="3" strokeLinecap="round" strokeDasharray="40 360"
+                  style={{animation: `aan-dash 3.4s linear ${delay} infinite`,filter: `drop-shadow(0 0 6px ${c})`}} />
+              ))}
+            </svg>
+            {SOURCE_STARS.map((star,i) => (
+              <svg key={i} aria-hidden viewBox="0 0 24 24" width={star.s} height={star.s} className="absolute text-aan-white"
+                style={{left:star.l,top:star.t,animation: `aan-twinkle 2.8s ease-in-out ${star.d} infinite`,filter:"drop-shadow(0 0 6px var(--aan-cyan))"}}>
+                <path fill="currentColor" d="M12 0 14 10 24 12 14 14 12 24 10 14 0 12 10 10Z" />
+              </svg>
+            ))}
           </div>
 
           <h2 className="border-l-4 border-aan-white pl-4 font-aan-display text-lg font-bold tracking-[0.18em] sm:text-2xl">

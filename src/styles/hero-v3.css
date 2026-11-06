@@ -199,3 +199,22 @@
 @media (max-width: 1023px) { .aan-source-brand { max-width: 690px; margin: 1.15rem auto 1.5rem; } }
 @media (max-width: 520px) { .aan-source-brand { margin: 1rem auto 1.25rem; } }
 @media (prefers-reduced-motion:reduce) { .aan-source-lettering-glint { animation:none; opacity:0; } }
+
+/* Fiel ao Alan Alves Digital: animações de estrelas, trilhas e raios da versão de origem.
+   Escopo somente da página inicial; não afeta a logo do menu, foto nem outras seções. */
+.aan-nav {
+  --aan-violet: oklch(0.55 0.2 255);
+  --aan-magenta: oklch(0.8 0.15 220);
+  background: color-mix(in oklab, var(--aan-space) 70%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--aan-violet) 45%, transparent);
+  box-shadow: 0 1px 18px -4px color-mix(in oklab, var(--aan-violet) 60%, transparent);
+}
+.aan-nav[data-scrolled="true"] {
+  background: color-mix(in oklab, var(--aan-space) 55%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+}
+@keyframes aan-source-bolt { 0%,86%,100% {opacity:0;} 88% {opacity:.9;} 90% {opacity:.3;} 93% {opacity:.75;} }
+@keyframes aan-source-flash { 0%,86%,100% {opacity:0;} 89% {opacity:.35;} }
+@media (prefers-reduced-motion:reduce) {
+ .aan-source-bolt {animation:none!important;opacity:.30!important;}
+}
