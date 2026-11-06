@@ -56,7 +56,7 @@ export function HeroSection() {
                 <filter id="alan-wordmark-transparent" x="-20%" y="-45%" width="140%" height="190%" colorInterpolationFilters="sRGB">
                   <feColorMatrix
                     type="matrix"
-                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0.9 0.9 0.9 0"
+                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0.9 0.9 0.9 0 0"
                   />
                 </filter>
               </defs>
