@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { NeonNav } from "@/components/hero/NeonNav";
+import { Header } from "@/components/site/Header";
 import { HomeMain } from "@/components/site/HomeMain";
 import { Footer } from "@/components/site/Footer";
 import { FloatWhats } from "@/components/site/FloatWhats";
@@ -22,7 +22,7 @@ function Index() {
   useHomeBehaviors();
   return (
     <>
-      <NeonNav />
+      <Header />
       <HomeMain />
       <Footer />
       <FloatWhats />
