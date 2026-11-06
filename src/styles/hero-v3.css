@@ -339,3 +339,78 @@
 @media (prefers-reduced-motion: reduce) {
   .aan-aurora-cloud { animation:none!important; will-change:auto; }
 }
+
+
+/* 2026 calm, unified hero polish – approved original lettering and portrait untouched. */
+/* A restrained dark-navy foundation matches the near-black backdrops within both original images. */
+#inicio.aan-blue-hero {
+  --aan-space: #030917;
+  --aan-deep: #040d1e;
+  --aan-violet: #2480cf;
+  --aan-magenta: #3298e7;
+  background:
+    radial-gradient(ellipse 48% 38% at 86% 46%, rgba(0,121,230,.13), transparent 79%),
+    radial-gradient(ellipse 42% 37% at 4% 31%, rgba(0,132,236,.075), transparent 83%),
+    linear-gradient(105deg,#030711 0%,#040b1b 54%,#051126 100%);
+}
+#inicio.aan-blue-hero::before {
+  background-image:
+    radial-gradient(circle,rgba(129,223,255,.8) 1px,transparent 2px),
+    radial-gradient(circle,rgba(49,156,255,.5) 1px,transparent 2px);
+  background-size:319px 267px,457px 389px;
+  background-position:42px 80px,89px 118px;
+  opacity:.18;
+}
+#inicio.aan-blue-hero .aan-aurora-bg { opacity:.29; }
+#inicio.aan-blue-hero .aan-aurora-cloud {
+  opacity:.24;
+  filter:blur(55px) saturate(1.05);
+  animation-duration:26s;
+}
+#inicio.aan-blue-hero .aan-aurora-cloud-bottom {opacity:.17}
+#inicio.aan-blue-hero .aan-aurora-sparks {opacity:.09}
+#inicio.aan-blue-hero .aan-portrait-panel {
+  position:relative;
+  isolation:isolate;
+  overflow:visible;
+  background:transparent;
+}
+#inicio.aan-blue-hero .aan-portrait-panel::before {
+  inset:18% 4% 17%;
+  background:radial-gradient(ellipse at 50% 47%,rgba(0,96,190,.19),rgba(0,40,93,.08) 49%,transparent 77%);
+  filter:blur(42px);
+}
+#inicio.aan-blue-hero .aan-portrait-image {
+  /* Add fallback CSS for clients that do not support inline masks. */
+  -webkit-mask-image:radial-gradient(ellipse 77% 75% at 50% 46%,#000 46%,rgba(0,0,0,.98) 60%,rgba(0,0,0,.72) 71%,transparent 97%);
+  mask-image:radial-gradient(ellipse 77% 75% at 50% 46%,#000 46%,rgba(0,0,0,.98) 60%,rgba(0,0,0,.72) 71%,transparent 97%);
+  filter:drop-shadow(0 0 11px rgba(0,140,230,.12));
+}
+#inicio.aan-blue-hero .aan-portrait-energy { opacity:.34; }
+#inicio.aan-blue-hero .aan-projects-availability {
+  background:rgba(2,10,24,.9);
+  border-color:rgba(37,194,249,.78);
+  box-shadow:0 0 12px rgba(17,146,222,.28),inset 0 0 8px rgba(13,117,190,.13);
+}
+#inicio.aan-blue-hero .aan-btn {
+  background:linear-gradient(102deg,#0757a9 0%,#087fce 48%,#075cba 100%);
+  box-shadow:0 0 13px rgba(0,150,240,.25),inset 0 0 6px rgba(213,250,255,.16);
+  border:1px solid rgba(109,222,255,.82);
+}
+#inicio.aan-blue-hero .aan-border::before {
+  background:conic-gradient(from var(--aan-ang),transparent 0 72%,#3dbbe8 86%,transparent);
+}
+#inicio.aan-blue-hero .aan-social-ring {border-color:rgba(67,167,230,.65);box-shadow:none}
+#inicio.aan-blue-hero > .pointer-events-none.absolute.inset-x-0.bottom-0 { opacity:.55; }
+@media(max-width:1023px) {
+  #inicio.aan-blue-hero {background:linear-gradient(180deg,#030711 0%,#040b1b 48%,#061226 80%,#030711 100%)}
+  #inicio.aan-blue-hero .aan-aurora-bg {opacity:.2}
+  #inicio.aan-blue-hero .aan-portrait-panel {max-width:440px;margin-top:.45rem}
+  #inicio.aan-blue-hero .aan-portrait-image {
+    -webkit-mask-image:radial-gradient(ellipse 82% 78% at 50% 46%,#000 44%,rgba(0,0,0,.9) 58%,rgba(0,0,0,.58) 72%,transparent 98%);
+    mask-image:radial-gradient(ellipse 82% 78% at 50% 46%,#000 44%,rgba(0,0,0,.9) 58%,rgba(0,0,0,.58) 72%,transparent 98%);
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  #inicio.aan-blue-hero .aan-aurora-cloud {animation:none}
+}

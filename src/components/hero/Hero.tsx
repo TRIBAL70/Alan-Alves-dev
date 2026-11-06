@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
-import { SmokeCanvas } from "./SmokeCanvas";
 const retrato = "/assets/alan-digital-retrato-ref.jpg";
 
 function WhatsIcon({ className }: { className?: string }) {
@@ -60,12 +59,11 @@ export function HeroSection() {
         <span className="aan-aurora-cloud aan-aurora-cloud-bottom" />
         <span className="aan-aurora-sparks" />
       </div>
-      <div className="aan-enter-fade absolute inset-0" style={{ animationDelay: ".3s" }}><SmokeCanvas /></div>
       <SourceLightning />
 
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-7 px-4 pb-24 pt-8 lg:min-h-[730px] lg:grid-cols-[minmax(0,1.06fr)_minmax(0,.94fr)] lg:gap-10 lg:px-8 lg:pt-12">
         <div className="relative z-10">
-          <div className="aan-enter inline-flex items-center gap-3 rounded-full border-2 border-aan-violet bg-aan-space/60 px-5 py-2 shadow-[0_0_16px_var(--aan-violet)]">
+          <div className="aan-enter inline-flex items-center gap-3 rounded-full border border-aan-cyan/70 bg-aan-space/70 px-5 py-2 shadow-[0_0_12px_rgba(0,192,255,.24)]">
             <span className="aan-status-dot size-3 rounded-full" />
             <span className="font-aan-display text-xs tracking-[0.2em] sm:text-sm">OLÁ, EU SOU ALAN ALVES</span>
           </div>
@@ -154,6 +152,12 @@ export function HeroSection() {
             decoding="async"
             fetchPriority="high"
             className="aan-portrait-image relative z-10 block h-auto w-full object-contain"
+            style={{
+              /* Crossfade the photograph's embedded rectangular background into the hero.
+                 The photo pixels and original facial details remain unchanged. */
+              WebkitMaskImage: "radial-gradient(ellipse 77% 75% at 50% 46%, black 46%, rgba(0,0,0,.98) 60%, rgba(0,0,0,.72) 71%, transparent 97%)",
+              maskImage: "radial-gradient(ellipse 77% 75% at 50% 46%, black 46%, rgba(0,0,0,.98) 60%, rgba(0,0,0,.72) 71%, transparent 97%)",
+            }}
           />
           <figcaption className="aan-projects-availability absolute bottom-[9%] left-[4%] z-20">
             <span className="aan-projects-online"><span className="aan-status-dot size-3 rounded-full" /> ONLINE</span>
