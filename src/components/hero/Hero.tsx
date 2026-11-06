@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
 import { SmokeCanvas } from "./SmokeCanvas";
+const retrato = "/assets/alan-CUJULnXC.png";
 
 function WhatsIcon({ className }: { className?: string }) {
   return (
@@ -21,14 +22,27 @@ export function HeroSection() {
     <section id="inicio" className="aan-hero relative min-h-screen overflow-hidden pt-16 font-aan-sans text-aan-white">
       <div className="aan-enter-fade absolute inset-0" style={{ animationDelay: ".3s" }}><SmokeCanvas /></div>
 
-      <div className="relative mx-auto w-full max-w-4xl px-4 pb-24 pt-6 lg:px-8 lg:pt-12">
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-7 px-4 pb-24 pt-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)] lg:gap-10 lg:px-8 lg:pt-12">
         <div className="relative z-10">
           <div className="aan-enter inline-flex items-center gap-3 rounded-full border-2 border-aan-violet bg-aan-space/60 px-5 py-2 shadow-[0_0_16px_var(--aan-violet)]">
             <span className="aan-status-dot size-3 rounded-full" />
             <span className="font-aan-display text-xs tracking-[0.2em] sm:text-sm">OLÁ, EU SOU ALAN ALVES</span>
           </div>
 
-          <div className="aan-enter relative my-6 flex justify-center sm:my-8" style={{ animationDelay: ".35s" }}>
+
+          <div className="aan-enter relative mx-auto mt-5 h-[260px] max-w-[350px] lg:hidden" style={{ animationDelay: ".25s" }}>
+            <img
+              src={retrato}
+              alt="Foto original de Alan Alves"
+              width={700}
+              height={773}
+              decoding="async"
+              className="h-full w-full object-contain object-center"
+              style={{ maskImage: "radial-gradient(ellipse 63% 64% at 50% 48%, black 53%, transparent 100%)" }}
+            />
+          </div>
+
+          <div className="aan-enter relative my-5 flex justify-center sm:my-8" style={{ animationDelay: ".35s" }}>
             <img
               src="/assets/alan-alves-wordmark-2026.webp"
               alt="ALAN ALVES"
@@ -70,9 +84,20 @@ export function HeroSection() {
               ))}
             </div>
           )}
+
         </div>
 
-
+        <div className="relative mx-auto hidden w-full max-w-lg items-center justify-center lg:flex">
+          <img
+            src={retrato}
+            alt="Foto original de Alan Alves"
+            width={700}
+            height={773}
+            decoding="async"
+            className="aan-enter-fade w-full object-contain"
+            style={{ animationDelay: ".5s", maskImage: "radial-gradient(ellipse 59% 60% at 50% 48%, black 58%, transparent 100%)" }}
+          />
+        </div>
       </div>
 
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-40 overflow-hidden">
