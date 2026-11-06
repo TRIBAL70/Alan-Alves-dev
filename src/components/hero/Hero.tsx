@@ -81,7 +81,7 @@ export function HeroSection() {
             <h1 className="m-0 leading-none" aria-label="Alan Alves">
               <img
                 src={transparentLettering || "/assets/alan-alves-letreiro-3d.avif"}
-                style={{ opacity: transparentLettering ? 1 : 0 }}
+                style={{ opacity: transparentLettering ? 1 : 0, mixBlendMode: transparentLettering?.startsWith("data:image/png") ? "normal" : "screen" }}
                 alt="Alan Alves"
                 width={1200}
                 height={400}
