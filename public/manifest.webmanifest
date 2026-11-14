@@ -8,10 +8,11 @@
   "theme_color": "#030711",
   "icons": [
     {
-      "src": "/assets/sky-ia-launch.svg",
+      "src": "/assets/sky-ia-launch.svg?v=20261114b",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     }
-  ]
+  ],
+  "id": "/"
 }
